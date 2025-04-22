@@ -1,0 +1,24 @@
+<Project>
+  <!---->
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+  <!---->
+  <!-- Packagges -->
+  <ItemGroup>
+    <PackageVersion Include="Dunet" Version="1.11.2" />
+    <PackageVersion Include="Flurl.Http" Version="4.0.2" />
+    <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.4" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.Hybrid" Version="9.4.0" />
+    <PackageVersion Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="9.0.2" />
+    <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="9.4.0" />
+    <PackageVersion Include="Microsoft.Extensions.TimeProvider.Testing" Version="9.4.0" />
+    <PackageVersion Include="Scalar.AspNetCore" Version="2.1.17" />
+  </ItemGroup>
+  <!---->
+  <!-- Testing -->
+  <ItemGroup>
+    <PackageVersion Include="TUnit" Version="0.19.86" />
+  </ItemGroup>
+  <!---->
+</Project>
