@@ -72,4 +72,34 @@ public sealed class StatisticsServiceTests : TestBase
             await Assert.That(perf.Bucket).IsEqualTo(perf.Tag);
         }
     }
+
+    [Test]
+    public async Task Should_Calculate_Correct_Performances_After_Given_Time()
+    {
+        var timeProvider = new FakeTimeProvider();
+        var services = new StatisticsService(timeProvider); // uses default options with default buckets (fast < 100ms, average 100ms - 200ms, slow > 200ms);
+
+        var now = timeProvider.GetUtcNow();
+
+        using (var m1 = services.StartMeasuring("fast"))
+        {
+            timeProvider.Advance(TimeSpan.FromMilliseconds(99));
+        }
+        using (var m1 = services.StartMeasuring("average"))
+        {
+            timeProvider.Advance(TimeSpan.FromMilliseconds(100));
+        }
+        using (var m1 = services.StartMeasuring("slow"))
+        {
+            timeProvider.Advance(TimeSpan.FromMilliseconds(200));
+        }
+
+        var performances = services.CalculatePerformances(now);
+        foreach (var perf in performances)
+        {
+            await Assert.That(perf.Bucket).IsNotNull();
+            await Assert.That(perf.Bucket).IsNotEqualTo("unknown");
+            await Assert.That(perf.Bucket).IsEqualTo(perf.Tag);
+        }
+    }
 }
