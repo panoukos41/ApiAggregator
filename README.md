@@ -110,7 +110,7 @@ You need to provide API keys for the [News](https://newsapi.org/), [Weather](htt
 The project has no other external dependencies so just hit run and navigate to [https://localhost:5001/docs](https://localhost:5001/docs) to see the Scalar UI where you can execute both calls.
 
 ### Test
-The tests are based on the [TUnit]() library which requires you to enable in Visual Studio the preview feature of `Microsoft.Testing.Platform`.
+The tests are based on the [TUnit](https://tunit.dev/) library which requires you to enable in Visual Studio the preview feature of `Microsoft.Testing.Platform`.
 
 After that you can rebuild the project and the tests will show up.
 
